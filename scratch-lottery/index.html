@@ -10,83 +10,143 @@
     <div class="container">
         <!-- 头部 -->
         <header class="header">
-            <h1>🎰 中国体育彩票</h1>
-            <p class="subtitle">刮刮乐小游戏</p>
+            <div class="logo-area">
+                <div class="logo">🏅</div>
+                <div class="header-text">
+                    <h1>中国体育彩票</h1>
+                    <p class="lottery-type">刮刮乐</p>
+                </div>
+            </div>
         </header>
 
         <!-- 游戏统计 -->
         <div class="stats-container">
             <div class="stat-item">
-                <span class="stat-label">总积分</span>
-                <span class="stat-value" id="totalScore">0</span>
+                <span class="stat-label">💰 总奖金</span>
+                <span class="stat-value" id="totalScore">¥0</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">已刮卡</span>
-                <span class="stat-value" id="totalScratched">0</span>
+                <span class="stat-label">🎫 已刮</span>
+                <span class="stat-value" id="totalScratched">0张</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">中奖数</span>
-                <span class="stat-value" id="winCount">0</span>
+                <span class="stat-label">🎁 中奖</span>
+                <span class="stat-value" id="winCount">0次</span>
             </div>
         </div>
 
         <!-- 主游戏区域 -->
         <div class="game-area">
-            <div class="ticket-container">
-                <div class="ticket-header">
-                    <span class="ticket-number">编号: <span id="ticketNumber">001</span></span>
-                    <span class="ticket-price">¥20</span>
+            <!-- 真实刮刮乐卡片 -->
+            <div class="lottery-card">
+                <!-- 卡片顶部 -->
+                <div class="card-top-section">
+                    <div class="card-header-bar"></div>
+                    <div class="lottery-title">
+                        <span class="title-text">体彩刮刮乐</span>
+                    </div>
+                    <div class="ticket-info">
+                        <span class="info-label">票号</span>
+                        <span class="ticket-number" id="ticketNumber">20260717001</span>
+                    </div>
                 </div>
 
-                <!-- 刮刮卡 -->
-                <div class="scratch-card-wrapper">
-                    <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
-                    <div class="card-content">
-                        <div class="prize-grid">
-                            <div class="prize-item">
-                                <span class="label">中奖金额</span>
-                                <span class="amount" id="prizeAmount">¥0</span>
-                            </div>
-                            <div class="prize-item">
-                                <span class="label">中奖号码</span>
-                                <span class="code" id="prizeCode">000000</span>
-                            </div>
+                <!-- 卡片中间信息区 -->
+                <div class="card-info-section">
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <span class="info-title">玩法</span>
+                            <span class="info-value">刮开银色涂层</span>
                         </div>
-                        <div class="small-prizes">
-                            <p class="small-prize-label">兑奖金额</p>
-                            <div class="small-prizes-grid">
-                                <span class="small-prize" id="sp1">5</span>
-                                <span class="small-prize" id="sp2">10</span>
-                                <span class="small-prize" id="sp3">20</span>
-                                <span class="small-prize" id="sp4">50</span>
-                                <span class="small-prize" id="sp5">100</span>
-                                <span class="small-prize" id="sp6">200</span>
-                            </div>
+                        <div class="info-box">
+                            <span class="info-title">面值</span>
+                            <span class="info-value">¥20</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="hint">用鼠标在上方刮开银色区域</div>
+                <!-- 主刮刮区域 -->
+                <div class="scratch-area-wrapper">
+                    <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+                    <div class="card-content">
+                        <!-- 中奖区域 -->
+                        <div class="winning-section">
+                            <div class="winning-box">
+                                <div class="winning-label">中奖号码</div>
+                                <div class="winning-code" id="prizeCode">000000</div>
+                            </div>
+                            <div class="winning-box big-prize">
+                                <div class="winning-label">奖金</div>
+                                <div class="winning-amount" id="prizeAmount">¥0</div>
+                            </div>
+                            <div class="winning-box">
+                                <div class="winning-label">二等奖</div>
+                                <div class="winning-code" id="secondCode">000000</div>
+                            </div>
+                        </div>
+
+                        <!-- 小奖区域 -->
+                        <div class="small-prizes-section">
+                            <div class="small-prizes-title">兑奖对照</div>
+                            <div class="small-prizes-grid">
+                                <span class="small-prize">¥5</span>
+                                <span class="small-prize">¥10</span>
+                                <span class="small-prize">¥20</span>
+                                <span class="small-prize">¥50</span>
+                                <span class="small-prize">¥100</span>
+                                <span class="small-prize">¥200</span>
+                            </div>
+                        </div>
+
+                        <!-- 底部信息 -->
+                        <div class="card-footer">
+                            <p>刮开银色涂层查看中奖号码</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 卡片底部 -->
+                <div class="card-bottom-section">
+                    <div class="card-bottom-bar"></div>
+                    <div class="card-footer-info">
+                        <span class="footer-text">中国体育彩票管理中心发行</span>
+                    </div>
+                </div>
             </div>
 
             <!-- 奖励提示 -->
             <div class="reward-notification" id="rewardNotification">
+                <span class="reward-emoji" id="rewardEmoji">🎉</span>
                 <span id="rewardText"></span>
             </div>
         </div>
 
         <!-- 按钮区域 -->
         <div class="button-group">
-            <button class="btn btn-primary" id="newGameBtn">开启新的刮刮乐</button>
-            <button class="btn btn-secondary" id="resetBtn">重置数据</button>
+            <button class="btn btn-primary" id="newGameBtn">
+                <span class="btn-icon">🎫</span>
+                <span>开启新卡</span>
+            </button>
+            <button class="btn btn-secondary" id="resetBtn">
+                <span class="btn-icon">🔄</span>
+                <span>重置数据</span>
+            </button>
         </div>
 
         <!-- 游戏历史 -->
         <div class="history-container">
-            <h2>游戏历史记录</h2>
-            <div class="history-list" id="historyList">
-                <p class="empty-hint">暂无历史记录</p>
+            <div class="history-header">
+                <h2>📋 刮奖记录</h2>
+                <span class="record-count" id="recordCount">0条</span>
             </div>
+            <div class="history-list" id="historyList">
+                <p class="empty-hint">开始刮刮乐，建立你的中奖记录</p>
+            </div>
+        </div>
+
+        <!-- 提示信息 -->
+        <div class="hint-section">
+            <p class="hint-text">💡 用鼠标或手指在卡片上刮一刮，发现惊喜！</p>
         </div>
     </div>
 
