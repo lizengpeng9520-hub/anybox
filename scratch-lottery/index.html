@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国体育彩票 - 刮刮乐</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🎰 中国体育彩票</h1>
+            <p class="subtitle">刮刮乐小游戏</p>
+        </header>
+
+        <!-- 游戏统计 -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-label">总积分</span>
+                <span class="stat-value" id="totalScore">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">已刮卡</span>
+                <span class="stat-value" id="totalScratched">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">中奖数</span>
+                <span class="stat-value" id="winCount">0</span>
+            </div>
+        </div>
+
+        <!-- 主游戏区域 -->
+        <div class="game-area">
+            <div class="ticket-container">
+                <div class="ticket-header">
+                    <span class="ticket-number">编号: <span id="ticketNumber">001</span></span>
+                    <span class="ticket-price">¥20</span>
+                </div>
+
+                <!-- 刮刮卡 -->
+                <div class="scratch-card-wrapper">
+                    <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+                    <div class="card-content">
+                        <div class="prize-grid">
+                            <div class="prize-item">
+                                <span class="label">中奖金额</span>
+                                <span class="amount" id="prizeAmount">¥0</span>
+                            </div>
+                            <div class="prize-item">
+                                <span class="label">中奖号码</span>
+                                <span class="code" id="prizeCode">000000</span>
+                            </div>
+                        </div>
+                        <div class="small-prizes">
+                            <p class="small-prize-label">兑奖金额</p>
+                            <div class="small-prizes-grid">
+                                <span class="small-prize" id="sp1">5</span>
+                                <span class="small-prize" id="sp2">10</span>
+                                <span class="small-prize" id="sp3">20</span>
+                                <span class="small-prize" id="sp4">50</span>
+                                <span class="small-prize" id="sp5">100</span>
+                                <span class="small-prize" id="sp6">200</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hint">用鼠标在上方刮开银色区域</div>
+            </div>
+
+            <!-- 奖励提示 -->
+            <div class="reward-notification" id="rewardNotification">
+                <span id="rewardText"></span>
+            </div>
+        </div>
+
+        <!-- 按钮区域 -->
+        <div class="button-group">
+            <button class="btn btn-primary" id="newGameBtn">开启新的刮刮乐</button>
+            <button class="btn btn-secondary" id="resetBtn">重置数据</button>
+        </div>
+
+        <!-- 游戏历史 -->
+        <div class="history-container">
+            <h2>游戏历史记录</h2>
+            <div class="history-list" id="historyList">
+                <p class="empty-hint">暂无历史记录</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
